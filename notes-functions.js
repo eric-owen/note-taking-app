@@ -32,8 +32,9 @@ const removeNote = function (id) {
 
 const generateNoteDOM = function (note) {
     const noteEl = document.createElement('div')
-    const textEl = document.createElement('span')
+    const textEl = document.createElement('a')
     const removeNoteButton = document.createElement('button')
+
 
     //setup the remove button
     removeNoteButton.textContent = 'x'
@@ -51,6 +52,7 @@ const generateNoteDOM = function (note) {
         textEl.textContent = 'unnamed note'
     }
 
+    textEl.setAttribute('href', `/mead/js/notes-app/edit.html#${note.id}`)
     noteEl.appendChild(textEl)
 
     return noteEl

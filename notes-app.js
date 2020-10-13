@@ -8,14 +8,20 @@ renderNotes(notes, filters)
 
 
 document.querySelector('#create-note').addEventListener('click', function () {
+    const id = uuidv4()
+
     notes.push({
-        id: uuidv4(),
+        id: id,
         title: '',
         body: ''
     })
 
     saveNotes(notes)
-    renderNotes(notes, filters)
+
+    setTimeout(() => {
+        location.assign(`/mead/js/notes-app/edit.html#${id}`)
+
+    }, 1);
 })
 
 
